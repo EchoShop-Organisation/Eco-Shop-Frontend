@@ -6,6 +6,9 @@ import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
+import Products from "./pages/Products";
+
+
 
 function App() {
   return (
@@ -16,6 +19,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        <Route path="/products" element={<Products />} />
+
       </Routes>
     </Router>
   );

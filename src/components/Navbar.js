@@ -26,7 +26,10 @@ const Navbar = () => {
             <>
               <Link to="/login" className="text-white hover:text-gray-200 transition duration-300">Login</Link>
               <Link to="/register" className="text-white hover:text-gray-200 transition duration-300">Register</Link>
+              <Link to="/products" className="text-white hover:text-gray-200 transition duration-300">Products</Link>
+
             </>
+            
           )}
         </div>
       </div>

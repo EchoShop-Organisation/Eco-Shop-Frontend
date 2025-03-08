@@ -14,18 +14,18 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-xl font-bold">EcoShop</Link>
+        <Link to="/" className="text-white text-2xl font-bold hover:text-gray-200 transition duration-300">EcoShop</Link>
         <div className="space-x-4">
           {user ? (
             <>
-              <span className="text-white">Welcome, {user.username}!</span>
-              <Link to="/profile" className="text-white">Profile</Link>
-              <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-1 rounded">Logout</button>
+              <span className="text-white hidden md:inline-block">Welcome, {user.username}!</span>
+              <Link to="/profile" className="text-white hover:text-gray-200 transition duration-300">Profile</Link>
+              <button onClick={handleLogout} className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300">Logout</button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-white">Login</Link>
-              <Link to="/register" className="text-white">Register</Link>
+              <Link to="/login" className="text-white hover:text-gray-200 transition duration-300">Login</Link>
+              <Link to="/register" className="text-white hover:text-gray-200 transition duration-300">Register</Link>
             </>
           )}
         </div>

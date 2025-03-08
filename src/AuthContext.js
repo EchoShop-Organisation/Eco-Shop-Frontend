@@ -9,8 +9,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("accessToken"));
 
-  // Cart State
-  const [cart, setCart] = useState([]);
+  // Cart State (Load from localStorage)
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   // Load user from stored token on app start
   useEffect(() => {
@@ -27,6 +30,11 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   // Login Function
   const login = async (credentials) => {
     const response = await loginUser(credentials);
@@ -38,6 +46,7 @@ export const AuthProvider = ({ children }) => {
   // Logout Function
   const logout = () => {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("cart"); // Clear saved cart
     setToken(null);
     setUser(null);
     setCart([]); // Clear cart on logout

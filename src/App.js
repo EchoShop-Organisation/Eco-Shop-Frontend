@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
-
+import Checkout from "./pages/Checkout"; // ✅ Import Checkout Page
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-
+        <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
+        <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
       </Routes>
     </Router>
   );

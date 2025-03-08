@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Products from "./pages/Products";
-
+import Cart from "./pages/Cart";
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/products" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
 
       </Routes>
     </Router>

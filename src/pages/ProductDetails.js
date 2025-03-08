@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../AuthContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const { addToCart } = useContext(AuthContext); // Access addToCart from Context
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -27,8 +29,10 @@ const ProductDetails = () => {
         <h2 className="text-3xl font-bold mt-4">{product.name}</h2>
         <p className="text-gray-700 mt-2">{product.description}</p>
         <p className="text-blue-600 font-bold text-2xl mt-2">${product.price}</p>
-        <button className="mt-4 bg-green-500 hover:bg-green-700 text-white px-6 py-3 rounded-lg"
-          onClick={() => alert("Added to Cart!")}>
+        <button
+          className="mt-4 bg-green-500 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition duration-300"
+          onClick={() => addToCart(product)}
+        >
           Add to Cart
         </button>
       </div>
